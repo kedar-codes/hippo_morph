@@ -8,8 +8,8 @@ import sys
 ####################################################################################################
 
 # Define the input and output directories for the SlicerSALT SPHARM-PDM computation
-input_directory = '/home/kedar/isilon/ADCC_ShapeAnalysis/subject_T1s/masks_L_bin/' # CHECK!
-output_directory = '/home/kedar/isilon/ADCC_ShapeAnalysis/ADCC_ShapeAnalysis_final/SPHARM_computation_P920/masks_L_bin/' # CHECK!
+input_directory = '/path/to/your/input/masks/directory/' # CHECK!
+output_directory = '/path/to/your/output/directory/' # CHECK!
 
 # Create output directory if it doesn't exist
 if not os.path.exists(output_directory):
@@ -19,15 +19,15 @@ if not os.path.exists(output_directory):
 
 # Define the registration options
 reg_template_TorF = 'True'
-reg_template_path = '/home/kedar/isilon/ADCC_ShapeAnalysis/template_files/MCALT_T1_mask_L_bin_pp_surf_SPHARM.vtk' # CHECK!
+reg_template_path = '/path/to/your/registration/template/file.vtk' # CHECK!
 flip_template_TorF = 'True'
-flip_template_path = '/home/kedar/isilon/ADCC_ShapeAnalysis/template_files/MCALT_T1_mask_L_bin_pp_surf_SPHARM.coef' # CHECK!
+flip_template_path = '/path/to/your/flip/template/file.coef' # CHECK!
 
 # Define path to blank .ini file (template)
-ini_file = '/home/kedar/isilon/ShapeAnalysisPipeline/2024_test/SPHARM-PDM-parameters_blank.ini'
+ini_file = '/path/to/SPHARM-PDM-parameters_blank.ini'
 
 # Define name for new .ini file
-new_ini_file = 'masks_L_SPHARM-PDM-parameters.ini' # CHECK!
+new_ini_file = '/path/to/newly/created/config/file.ini' # CHECK!
 
 ####################################################################################################
 # Edit the .ini file
