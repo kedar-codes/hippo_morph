@@ -9,12 +9,12 @@ import glob
 print("\nBeginning rigid binarization via fslmaths.\n")
 
 # Define the input directories that contain the .nii.gz segmentation masks to be binarized
-segmentation_masks_L_dir = '/home/kedar/isilon/ADCC_ShapeAnalysis/subject_T1s/masks_L/'
-segmentation_masks_R_dir = '/home/kedar/isilon/ADCC_ShapeAnalysis/subject_T1s/masks_R/'
+segmentation_masks_L_dir = 'path/to/your/left/segmentation/masks/'
+segmentation_masks_R_dir = 'path/to/your/right/segmentation/masks/'
 
 # Define the output directories for the binarized images (and create it if it doesn't exist)
-output_directory_masks_L = '/home/kedar/isilon/ADCC_ShapeAnalysis/subject_T1s/masks_L_bin/'
-output_directory_masks_R = '/home/kedar/isilon/ADCC_ShapeAnalysis/subject_T1s/masks_R_bin/'
+output_directory_masks_L = 'path/to/your/binarized/left/outputs/'
+output_directory_masks_R = 'path/to/your/binarized/right/outputs/'
 
 if not os.path.exists(output_directory_masks_L):
     os.makedirs(output_directory_masks_L)
