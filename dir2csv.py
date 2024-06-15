@@ -2,10 +2,10 @@ import os
 import csv
 
 # Specify the directory paths and the CSV file names
-directory_path_masks_L = '/home/kedar/isilon/ADCC_ShapeAnalysis/ADCC_ShapeAnalysis_final/SPHARM_computation_P920/masks_L_bin/Step3_ParaToSPHARMMesh/procalign_models/'
-directory_path_masks_R = '/home/kedar/isilon/ADCC_ShapeAnalysis/ADCC_ShapeAnalysis_final/SPHARM_computation_P920/masks_R_bin/Step3_ParaToSPHARMMesh/procalign_models/'
+directory_path_masks_L = '/path/to/your/left/hippocampal/VTK/models'
+directory_path_masks_R = '/path/to/your/right/hippocampal/VTK/models'
 
-output_directory = '/home/kedar/isilon/ADCC_ShapeAnalysis/ADCC_ShapeAnalysis_final/statistics'
+output_directory = '/path/to/directory/where/CSV/files/will/be/saved/'
 
 csv_file_name_masks_L = 'paths_masks_L.csv'
 csv_file_name_masks_R = 'paths_masks_R.csv'
