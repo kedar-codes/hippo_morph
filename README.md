@@ -1,4 +1,6 @@
 # hippo_morph
+![spherical_harmonics](https://github.com/kedar-codes/hippo_morph/assets/172929607/833be570-14aa-4122-b9f9-3a11a0fa78b2)
+
 Current code for my Python-based hippocampal morphometry pipeline, based on the hippodeep_pytorch segmentation program and the SlicerSALT shape analysis software.
 
 Requires [hippodeep_pytorch](https://github.com/bthyreau/hippodeep_pytorch) and [SlicerSALT](https://salt.slicer.org/). For some functions of the pipeline (_i.e_., binarization, registration), [FSL](https://fsl.fmrib.ox.ac.uk/fsl/docs/#/) is optional, but highly recommended.
