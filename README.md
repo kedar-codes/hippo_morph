@@ -20,7 +20,7 @@ _Disclaimer: I am not affiliated in any way with the developers of these program
      
    - SPHARM-PDM requires that your input volumes conform to spherical topology, _i.e._, they **do not contain any holes or geometrical abnormalities**. Ensure that your hippocampal objects are free of such holes/handles and are contiguous in shape. Though _hippodeep_pytorch_'s outputs are generally error-free and SPHARM-PDM does its best to resolve any potential geometry issues, you may need to visually inspect the quality of your input segmentations and manually correct any errors.
      
-   - SlicerSALT's SPHARM-PDM computation may sometimes stall or error out on a particular mask for no apparent reason, without the ability to stop the program or skip to a less problematic mask. For large batches of files, it may be best to simply run SPHARM-PDM in SLicerSALT's GUI. Even then, an error may occur in which you will need to remove (or manually edit) the problematic mask and restart the SPHARM-PDM process/script. SlicerSALT will identify any completed outputs and will only re-run on any unprocessed input masks.
+   - SlicerSALT's SPHARM-PDM computation may sometimes stall or error out on a particular mask for no apparent reason, without the ability to stop the program or skip to a less problematic mask. For large batches of files, it may be best to simply run SPHARM-PDM in SlicerSALT's GUI. Even then, an error may occur in which you will need to remove (or manually edit) the problematic mask and restart the SPHARM-PDM process/script. SlicerSALT will identify any completed outputs and will only re-run on any unprocessed input masks.
   
 **Optional pre-SPHARM tools:**
 
