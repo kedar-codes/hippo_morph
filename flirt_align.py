@@ -9,16 +9,16 @@ import glob
 print("\nBeginning rigid (affine) alignment via FSL FLIRT.\n")
 
 # Define the input directories that contain the .nii.gz segmentation masks to be registered
-segmentation_masks_L_dir = '/home/kedar/isilon/ShapeAnalysisPipeline/2024_test/subject_T1s/masks_L/'
-segmentation_masks_R_dir = '/home/kedar/isilon/ShapeAnalysisPipeline/2024_test/subject_T1s/masks_R/'
+segmentation_masks_L_dir = '/path/to/your/left/hippocampal/masks/directory/'
+segmentation_masks_R_dir = '/path/to/your/right/hippocampal/masks/directory/'
 
 # Define the paths to the reference masks
-reference_image_mask_L = '/home/kedar/isilon/ShapeAnalysisPipeline/2024_test/template_files/MCALT_T1_mask_L_bin.nii.gz'
-reference_image_mask_R = '/home/kedar/isilon/ShapeAnalysisPipeline/2024_test/template_files/MCALT_T1_mask_R_bin.nii.gz'
+reference_image_mask_L = '/path/to/your/left/registration/template.nii.gz'
+reference_image_mask_R = '/path/to/your/right/registration/template.nii.gz'
 
 # Define the output directories for the registered images (and create it if it doesn't exist)
-output_directory_masks_L = '/home/kedar/isilon/ShapeAnalysisPipeline/2024_test/subject_T1s/masks_L_aligned/'
-output_directory_masks_R = '/home/kedar/isilon/ShapeAnalysisPipeline/2024_test/subject_T1s/masks_R_aligned/'
+output_directory_masks_L = '/path/to/your/left/output/directory/'
+output_directory_masks_R = '/path/to/your/right/output/directory/'
 
 if not os.path.exists(output_directory_masks_L):
     os.makedirs(output_directory_masks_L)
