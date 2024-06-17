@@ -2,7 +2,7 @@ import csv
 import os
 
 # Path to your CSV file
-csv_file_path = "/home/kedar/isilon/ADCC_ShapeAnalysis/ADCC_ShapeAnalysis_final/statistics/L_AB+_vs_AB-/check.csv"
+csv_file_path = "/path/to/your/CSV/file.csv"
 
 def check_file_existence(csv_file_path):
     with open(csv_file_path, newline='') as csvfile:
