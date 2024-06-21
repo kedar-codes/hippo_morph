@@ -55,14 +55,14 @@ for tp1_subj, tp2_subj, output_subj in zip(tp1_subjects, tp2_subjects, output_su
     MagNormVectors = slicer.util.arrayFromModelPointData(model_node, 'MagNormVector')
 
     # Construct output model filename
-    output_model_fullpath = (output_dir + "\\" + output_subj + ".vtk")
+    output_model_fullpath = (output_dir + "/" + output_subj + ".vtk") # Change to "\\" if using Windows
 
     # Save output .vtk models in output directory
     slicer.util.saveNode(output_node, output_model_fullpath)
     print("\nOutput model (Model to Model Distance) created: " + output_model_fullpath)
 
     # Construct output MagNormVectors filename
-    magNormVectors_output_fullpath = (output_dir + "\\" + output_subj + "_MagNormVectors.csv")
+    magNormVectors_output_fullpath = (output_dir + "/" + output_subj + "_MagNormVectors.csv") # Change to "\\" if using Windows
     print("Output file for MagNormVector distances created: " + magNormVectors_output_fullpath)
 
     # Save output MagNormVectors.csv file in output directory
