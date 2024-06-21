@@ -73,7 +73,7 @@ for tp1_subj, tp2_subj, output_subj in zip(tp1_subjects, tp2_subjects, output_su
     results_array = pd.concat([results_array, pd.DataFrame([new_row])], ignore_index=True)
 
 # Save results_array as a CSV file (M2MD_results.csv)
-results_array_fullpath = (output_dir + "/" + "M2MD_results.csv")
+results_array_fullpath = (output_dir + "/" + "M2MD_results.csv") # Change to "\\" if using Windows
 results_array.to_csv(results_array_fullpath, index=False)
 
 print("\nView all model pairs and output files in M2MD_results.csv.")
