@@ -34,8 +34,15 @@ _Disclaimer: I am not affiliated in any way with the developers of these program
 
 **Optional tools for post-SPHARM analyses:**
 
-SlicerSALT's SPHARM-PDM process simply generates correspondent surface meshes (in VTK file format) of the input volumes/masks. SlicerSALT contains a variety of modules and tools to perform any desired quantitative or statistical operations on these VTK models (see SlicerSALT documentation). Though it is best to work in SlicerSALT's GUI for these modules, here are a few scripts that may help with any such analyses:
+SlicerSALT's SPHARM-PDM process simply generates correspondent surface meshes (in VTK file format) of the input volumes/masks. SlicerSALT contains a variety of modules and tools to perform any desired quantitative or statistical operations on these VTK models (see SlicerSALT's documentation). Though it is best to work in SlicerSALT's GUI for these modules, here are a few scripts that may help with any such analyses:
 
 * `dir2csv.py` is a simple script that creates a CSV listing the full file paths of all the VTK files in the directories containing the left and right hippocampal mesh models. Modify the directory paths as needed. Particularly helpful for SlicerSALT's Covariate Signficance Testing module.
 
 * `check_files.py` is another simple script that goes through a given CSV (such as one created with `dir2csv.py`) and checks to see if all of the files actually exist, according to their listed file paths.
+  
+* `M2MD.py` allows for the batch processing of multiple VTK model pairs in SlicerSALT's 'Model to Model Distance' module (the GUI only allows for the processing of one pair at a time).
+  - This module computes the vertex-by-vertex distances (as vectors) between correspondent points of both VTK models (a "source" and a "target"). Here, this script is intended to compute such vectors between VTK models representing a subject at two timepoints.
+    
+  - A single CSV file listing all the model pairs **must** be used as an input for this script; refer to `M2MD_example.csv` as a template to structure your CSV file. Column 1 must have the header "Timepoint 1" and list the **full file path** of all subjects and their timepoint 1 models. Column 2 must have the header "Timepoint 2" and list the **full file path** of all the subjects and their corresponding timepoint 2 models. Column 3 must contain the header "Output" and the **basename** of the output VTK to be created, _not_ the file path or its .vtk extension.
+    
+  - As this script is written, the outputs will be 1) a VTK model file encoding the computed distances between correspondent vertices of each model pair, and 2) a CSV file containing the normal projections of the point-to-point distance vectors (i.e., vectors computed by the projecting the distance vectors onto their corresponding surface normals, thereby giving only the distance directly inward/outward relative to the surface).
