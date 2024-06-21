@@ -66,7 +66,7 @@ print(ini_file_path)
 print("\nStarting SPHARM-PDM computation. This may take a while...")
 
 # Build command to execute the SPHARM-PDM.py script from SlicerSALT
-spharm_command = ["/mnt/Whitman/opt/SlicerSALT-4.0.1-linux-amd64/SlicerSALT", "--no-main-window", "--python-script", "/mnt/Whitman/opt/SlicerSALT-4.0.1-linux-amd64/share/SlicerSALT-5.1/CommandLineTool/SPHARM-PDM.py", ini_file_path]
+spharm_command = ["/path/to/your/executable/of/SlicerSALT", "--no-main-window", "--python-script", "/path/to/your/main/SlicerSALT/folder/share/SlicerSALT-5.1/CommandLineTool/SPHARM-PDM.py", ini_file_path]
 
 # Run the SlicerSALT/SPHARM-PDM command and enable stdout and stderr to be piped. text=True allows stdout to be interpreted and printed as a string
 run_spharm = subprocess.Popen(spharm_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
