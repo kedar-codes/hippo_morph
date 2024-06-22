@@ -6,8 +6,8 @@ import csv
 ####################################################################################################
 
 # Specify the directory paths and the CSV file names
-directory_path_masks_L = '/path/to/your/left/hippocampal/VTK/models'
-directory_path_masks_R = '/path/to/your/right/hippocampal/VTK/models'
+directory_path_masks_L = '/path/to/your/left/hippocampal/VTK/models/'
+directory_path_masks_R = '/path/to/your/right/hippocampal/VTK/models/'
 
 output_directory = '/path/to/directory/where/CSV/files/will/be/saved/'
 
