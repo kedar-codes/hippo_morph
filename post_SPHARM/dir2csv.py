@@ -1,6 +1,10 @@
 import os
 import csv
 
+####################################################################################################
+# User-defined variables (directories)
+####################################################################################################
+
 # Specify the directory paths and the CSV file names
 directory_path_masks_L = '/path/to/your/left/hippocampal/VTK/models'
 directory_path_masks_R = '/path/to/your/right/hippocampal/VTK/models'
@@ -49,7 +53,7 @@ with open(csv_file_path_masks_R, mode='w', newline='') as file:
 print(f"\nCSV file '{csv_file_name_masks_R}' has been created with the names of all files from the directory '{directory_path_masks_R}'.")
 
 ####################################################################################################
-# End of script
+# End script
 ####################################################################################################
 
 print("\nAll CSV files have been created.\n")
