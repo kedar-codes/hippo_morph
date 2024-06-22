@@ -26,8 +26,8 @@ flip_template_path = '/path/to/your/flip/template/file.coef' # CHECK!
 # Define path to blank .ini file (template)
 ini_file = '/path/to/SPHARM-PDM-parameters_blank.ini'
 
-# Define name for new .ini file
-new_ini_file = '/path/to/newly/created/config/file.ini' # CHECK!
+# Define name for new .ini file (do not include full path)
+new_ini_file = 'new_file.ini' # CHECK!
 
 ####################################################################################################
 # Edit the .ini file
@@ -54,10 +54,10 @@ with open(output_directory + new_ini_file, 'w') as configfile:
     config.write(configfile)
 
 # Define full path of the newly created .ini file
-ini_file_path = output_directory + new_ini_file
+new_ini_file_path = output_directory + new_ini_file
 
 print("\nA new .ini file has been created. The SPHARM-PDM computation using this .ini file will now begin using the following .ini file:\n")
-print(ini_file_path)
+print(new_ini_file_path)
 
 ####################################################################################################
 # Begin the SPHARM-PDM computation
@@ -66,7 +66,7 @@ print(ini_file_path)
 print("\nStarting SPHARM-PDM computation. This may take a while...")
 
 # Build command to execute the SPHARM-PDM.py script from SlicerSALT
-spharm_command = ["/path/to/your/executable/of/SlicerSALT", "--no-main-window", "--python-script", "/path/to/your/main/SlicerSALT/folder/share/SlicerSALT-5.1/CommandLineTool/SPHARM-PDM.py", ini_file_path]
+spharm_command = ["/path/to/your/executable/of/SlicerSALT", "--no-main-window", "--python-script", "/path/to/your/main/SlicerSALT/folder/share/SlicerSALT-5.1/CommandLineTool/SPHARM-PDM.py", new_ini_file_path]
 
 # Run the SlicerSALT/SPHARM-PDM command and enable stdout and stderr to be piped. text=True allows stdout to be interpreted and printed as a string
 run_spharm = subprocess.Popen(spharm_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
