@@ -11,6 +11,10 @@ import slicer
 
 # exec(open(r"/path/to/M2MD.py").read())
 
+####################################################################################################
+# User-defined variables (directories)
+####################################################################################################
+
 # Path to the CSV file
 csv_file = r"/path/to/your/CSV/file.csv"
 
@@ -20,6 +24,10 @@ output_dir = r"/path/to/your/output/directory/"
 # Make sure output directory exists, and create it if not
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
+
+####################################################################################################
+# Begin program
+####################################################################################################
 
 # Load the CSV file with headers
 data = pd.read_csv(csv_file)
