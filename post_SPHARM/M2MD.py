@@ -84,6 +84,10 @@ for tp1_subj, tp2_subj, output_subj in zip(tp1_subjects, tp2_subjects, output_su
 results_array_fullpath = (output_dir + "/" + "M2MD_results.csv") # Change to "\\" if using Windows
 results_array.to_csv(results_array_fullpath, index=False)
 
+####################################################################################################
+# End script
+####################################################################################################
+
 print("\nView all model pairs and output files in M2MD_results.csv.")
 
 print("\nModel to Model Distance batch processing script has completed.\n")
