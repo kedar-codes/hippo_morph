@@ -43,42 +43,53 @@ results_array = pd.DataFrame(columns = ['Timepoint 1 Model', 'Timepoint 2 Model'
 # Iterate through a loop, where SlicerSALT's 'Model to Model Distance' module is performed on a matched pair of VTK files (tp1_subj and tp2_subj) to create the output VTK (output_subj)
 for tp1_subj, tp2_subj, output_subj in zip(tp1_subjects, tp2_subjects, output_subjects):
 
-    # Load timepoint 1, timepoint 2 models in Slicer
-    model1 = slicer.util.loadModel(tp1_subj)
-    model2 = slicer.util.loadModel(tp2_subj)
+    try:
 
-    # Create new output node to assign difference to
-    output_node = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLModelNode", output_subj)
+        # Load timepoint 1, timepoint 2 models in Slicer
+        model1 = slicer.util.loadModel(tp1_subj)
+        model2 = slicer.util.loadModel(tp2_subj)
 
-    # Set parameters for SlicerSALT's 'Model to Model Distance' module
-    params = {'vtkFile1': model1.GetID(), 'vtkFile2': model2.GetID(), 'vtkOutput': output_node.GetID(), 'distanceType': 'corresponding_point_to_point', 'targetInFields': False}
+        # Verify that the models were loaded successfully
+        if not model1 or not model2:
+            print(f"Skipped {output_subj} due to failure in loading models.")
+            continue
 
-    # Execute 'Model to Model Distance' module using the above parameters
-    slicer.cli.runSync(slicer.modules.modeltomodeldistance, None, parameters=params)
+        # Create new output node to assign difference to
+        output_node = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLModelNode", output_subj)
 
-    # Get node in proper format for array extraction
-    model_node = slicer.util.getNode(output_node.GetID())
+        # Set parameters for SlicerSALT's 'Model to Model Distance' module
+        params = {'vtkFile1': model1.GetID(), 'vtkFile2': model2.GetID(), 'vtkOutput': output_node.GetID(), 'distanceType': 'corresponding_point_to_point', 'targetInFields': False}
 
-    # Convert node to array of MagNormVector data
-    MagNormVectors = slicer.util.arrayFromModelPointData(model_node, 'MagNormVector')
+        # Execute 'Model to Model Distance' module using the above parameters
+        slicer.cli.runSync(slicer.modules.modeltomodeldistance, None, parameters=params)
 
-    # Construct output model filename
-    output_model_fullpath = (output_dir + "/" + output_subj + ".vtk") # Change to "\\" if using Windows
+        # Get node in proper format for array extraction
+        model_node = slicer.util.getNode(output_node.GetID())
 
-    # Save output .vtk models in output directory
-    slicer.util.saveNode(output_node, output_model_fullpath)
-    print("\nOutput model (Model to Model Distance) created: " + output_model_fullpath)
+        # Convert node to array of MagNormVector data
+        MagNormVectors = slicer.util.arrayFromModelPointData(model_node, 'MagNormVector')
 
-    # Construct output MagNormVectors filename
-    magNormVectors_output_fullpath = (output_dir + "/" + output_subj + "_MagNormVectors.csv") # Change to "\\" if using Windows
-    print("Output file for MagNormVector distances created: " + magNormVectors_output_fullpath)
+        # Construct output model filename
+        output_model_fullpath = (output_dir + "/" + output_subj + ".vtk") # Change to "\\" if using Windows
 
-    # Save output MagNormVectors.csv file in output directory
-    np.savetxt(magNormVectors_output_fullpath, MagNormVectors, delimiter=",", comments='')
+        # Save output .vtk models in output directory
+        slicer.util.saveNode(output_node, output_model_fullpath)
+        print("\nOutput model (Model to Model Distance) created: " + output_model_fullpath)
 
-    # Append timepoint 1 file path, timepoint 2 file path, output model file path, and new MagNormVectors.csv to results_array
-    new_row = {'Timepoint 1 Model': tp1_subj, 'Timepoint 2 Model': tp2_subj, 'Output M2MD Model': output_model_fullpath, 'MagNormVectors File': magNormVectors_output_fullpath}
-    results_array = pd.concat([results_array, pd.DataFrame([new_row])], ignore_index=True)
+        # Construct output MagNormVectors filename
+        magNormVectors_output_fullpath = (output_dir + "/" + output_subj + "_MagNormVectors.csv") # Change to "\\" if using Windows
+        print("Output file for MagNormVector distances created: " + magNormVectors_output_fullpath)
+
+        # Save output MagNormVectors.csv file in output directory
+        np.savetxt(magNormVectors_output_fullpath, MagNormVectors, delimiter=",", comments='')
+
+        # Append timepoint 1 file path, timepoint 2 file path, output model file path, and new MagNormVectors.csv to results_array
+        new_row = {'Timepoint 1 Model': tp1_subj, 'Timepoint 2 Model': tp2_subj, 'Output M2MD Model': output_model_fullpath, 'MagNormVectors File': magNormVectors_output_fullpath}
+        results_array = pd.concat([results_array, pd.DataFrame([new_row])], ignore_index=True)
+
+    except Exception as e:
+        #print(f"An error occurred with {output_subj}: {e}")
+        continue
 
 # Save results_array as a CSV file (M2MD_results.csv)
 results_array_fullpath = (output_dir + "/" + "M2MD_results.csv") # Change to "\\" if using Windows
