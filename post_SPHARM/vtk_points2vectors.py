@@ -59,7 +59,7 @@ def write_vtk(filename, data):
 
     writer = vtk.vtkPolyDataWriter() # Create a writer object to write the data into a file
 
-    writer.SetFileVersion(42) # IMPORTANT: This will write out the VTK in 4.2 file format, instead of the newer 5.1. This is important for compatibility when opening in SlicerSALT
+    writer.SetFileVersion(51) # IMPORTANT: This will write out the VTK in 5.1 file format, for compatibility when opening in SlicerSALT for Windows. Change to 42 (for VTK DataFile version 4.2) if using SLicerSALT for Linux.
 
     writer.SetFileName(filename) # Set the filename of the writer object to be written
 
