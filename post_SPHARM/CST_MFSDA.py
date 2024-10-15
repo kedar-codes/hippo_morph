@@ -7,15 +7,15 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 # User-defined variables
 
 # Define the master directory containing all subdirectories with CSV files
-master_directory = r'K:\ADCC_ShapeAnalysis\ADCC_ShapeAnalysis_final\statistics\NPIQ_apathy'
+master_directory = '/path/to/your/master/directory/'
 
 # Define the paths to the template *spherical parameterization* VTKs for MFSDA_run.py (*_pp_surf_para.vtk)
-L_sphere_template_vtk = r'K:\ShapeAnalysisPipeline\template_files\MCALT_T1_mask_L_bin_pp_surf_para.vtk'
-R_sphere_template_vtk = r'K:\ShapeAnalysisPipeline\template_files\MCALT_T1_mask_R_bin_pp_surf_para.vtk'
+L_sphere_template_vtk = '/path/to/your/left/spherical/parameterization/template_pp_surf_para.vtk'
+R_sphere_template_vtk = '/path/to/your/right/spherical/parameterization/template_pp_surf_para.vtk'
 
 # Define the paths to the template *shape VTKs* for MFSDA_createShapes.py (*_pp_surf_SPHARM.vtk)
-L_template_mask_vtk = r'K:\ShapeAnalysisPipeline\template_files\MCALT_T1_mask_L_bin_pp_surf_SPHARM.vtk'
-r_template_mask_vtk = r'K:\ShapeAnalysisPipeline\template_files\MCALT_T1_mask_R_bin_pp_surf_SPHARM.vtk'
+L_template_mask_vtk = '/path/to/your/left/shape/template_pp_surf_SPHARM.vtk'
+r_template_mask_vtk = '/path/to/your/right/shape/template_pp_surf_SPHARM.vtk'
 
 # Define the maximum number of parallel processes
 max_workers = 4  # Adjust this number based on the number of CPU cores you want to use
