@@ -7,7 +7,7 @@ Requires [hippodeep_pytorch](https://github.com/bthyreau/hippodeep_pytorch) and 
 
 _Disclaimer: I am not affiliated in any way with the developers of these programs, nor does my code represent any official additions/modifications to the original programs. This pipeline is for academic research purposes only._
 
-**Instructions for use:**
+# Instructions for use:
 
 1. Run `select_files_hippodeep.py`. This program will open a file explorer window in which the directory that contains the whole-brain T1-weighted MR images (in .nii format) is selected. After confirming that the folder and the files are correct, the _hippodeep_pytorch_ segmentation will begin. You will notice that your T1 image directory will populate with left and right hippocampal masks (in .nii format) for each of your subject images. 
    
@@ -26,13 +26,13 @@ _Disclaimer: I am not affiliated in any way with the developers of these program
      
    - SlicerSALT's command line tool for SPHARM-PDM may sometimes stall or error out on a particular mask for no apparent reason, without the ability to stop the program or skip to a less problematic mask. For large batches of files, it may be best to simply run SPHARM-PDM in SlicerSALT's GUI. Even then, an error may occur in which you will need to remove (or manually edit) the problematic mask and restart the SPHARM-PDM process/script. SlicerSALT/SPHARM-PDM will identify any completed outputs and will only re-run on any unprocessed input masks.
   
-**Optional pre-SPHARM tools:**
+# Optional pre-SPHARM tools:
 
 * As described above, use `bin_masks.py` to binarize the input masks before running SPHARM-PDM. This will result in fewer errors (flipped VTK models, etc.).
   
 * `flirt_align.py` optionally uses [FLIRT](https://fsl.fmrib.ox.ac.uk/fsl/docs/#/registration/flirt/index) (FMRIB's Linear Image Registration Tool) to perform a linear registration/alignment of the input masks before SPHARM-PDM. Though SlicerSALT's SPHARM-PDM tool provides a built-in Procrustes registration function, FLIRT may sometimes provide better-aligned output models. Use instead of—or even in addition to—SlicerSALT's provided registration tools.
 
-**Optional tools for post-SPHARM analyses:**
+# Optional tools for post-SPHARM analyses:
 
 SlicerSALT's SPHARM-PDM process simply generates correspondent surface meshes (in VTK file format) of the input volumes/masks. SlicerSALT contains a variety of modules and tools to perform any desired quantitative or statistical operations on these VTK models (see SlicerSALT's documentation). Though it is best to work in SlicerSALT's GUI for these modules, here are a few scripts that may help with any such analyses:
 
