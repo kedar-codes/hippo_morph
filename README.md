@@ -51,7 +51,7 @@ SlicerSALT's SPHARM-PDM process simply generates correspondent surface meshes (i
  
   - The script also requires two SPHARM shape VTKs (for both left and right hippocampal shapes) upon which to overlay the p-value/signficance maps. These VTK models _are_ the reconstructed SPHARM shape models and have the filename `*pp_surf_SPHARM.vtk`. You can use the SPHARM-generated registration template (recommended), an average VTK shape model, or any arbitrary VTK of your choosing, provided it contains the same SPHARM-PDM parameters/settings.
  
-  - The MFSDA process is computationally intensive. The script allows you to set the number of CPU cores allocated to running the program (one regression computation per core) so that the system is bogged down by excessive CPU usage while still being able to run multiple analyses in parallel via Windows multi-threading.
+  - The MFSDA process is computationally intensive. The script allows you to set the number of CPU cores allocated to running the program (one regression per core) so that the system isn't bogged down by excessive CPU usage while still being able to run multiple analyses in parallel via Windows multi-threading.
 
 * `dir2csv.py` is a simple script that creates a CSV file listing the full file paths of all the VTK files in the directories containing the left and right hippocampal VTK models. Modify the directory paths as needed. Particularly helpful for SlicerSALT's "Covariate Signficance Testing" module or `M2MD.py`.
 
