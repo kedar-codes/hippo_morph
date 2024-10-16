@@ -57,7 +57,7 @@ SlicerSALT's SPHARM-PDM process simply generates correspondent surface meshes (i
 
 * `check_files.py` is another simple script that goes through a given CSV file (such as one created with `dir2csv.py`) and checks to see if all of the files actually exist, according to their listed file paths. Useful for identifying errors when running SlicerSALT's "Covariate Significance Testing" module.
 
-* `excel2csv.py` is a helpful script that can generate CSVs from each worksheet in a Microsoft Excel file. It's particularly useful to avoid the tedious task of manually saving each worksheet as a CSV file within Excel. The primary use-case for this script is for the preparation of statistical testing via `CST_MFSDA.py`, as each CSV file is saved into its own individual folder (as required by `CST_MFSDA.py`).
+* `excel2csv.py` is a helpful script that can generate CSVs from each worksheet in a Microsoft Excel file. It's particularly useful to avoid the tedious task of manually saving each worksheet as a CSV file within Excel. The primary use-case for this script is for the preparation of statistical testing via `CST_MFSDA.py`, since each CSV file is saved into its own individual folder (as required by `CST_MFSDA.py`).
   
 * `M2MD.py` allows for the batch processing of multiple VTK model pairs in SlicerSALT's 'Model to Model Distance' module (the GUI only allows for the processing of one pair at a time).
   - This module computes the vertex-by-vertex distances (as vectors) between correspondent points of both VTK models (a "source" and a "target"). Here, this script is intended to compute such vectors between VTK models representing a subject at two different timepoints.
