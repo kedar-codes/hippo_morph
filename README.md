@@ -39,7 +39,7 @@ SlicerSALT's SPHARM-PDM process simply generates correspondent surface meshes (i
 * `CST_MFSDA.py` allows for the automation of the "Covariate Significance Testing" module and is particularly useful for batch processing of multiple linear modeling computations (instead of using the SlicerSALT GUI for each instance). The script will search a chosen "master" directory and any subdirectories within for the CSV files that serve as inputs for the "Covariate Significance Testing" module (see documentation on the [SlicerSALT website](https://salt.slicer.org/documentation/)). The script operates by calling the `MFSDA_run.py` and `MFSDA_createShapes.py` functions included in the SlicerSALT binaries (The "Covariate Significance Testing" module is simply a GUI wrapper for these very functions).
   - **Important:** Ensure that each input CSV is housed within its own subdirectory so that no output files are overwritten (the outputs of each computation will be `pvalues.json`, `efit.json`, `out.vtk`, and `output.csv`).
  
-  - The script assumes that the header of the first column in each CSV file is named "Subject"; you can change this, however.
+  - The script assumes that there exist CSVs for both left and right hippocampal masks, beginning with the letters "L" and "R", respectively. It is also assumed that the header of the first column in each CSV file is named "Subject". You can modify these settings, however.
  
   - The first column of each input CSV should contain the absolute file paths of all VTK shape models to be included in the regression computation. The following columns should include the variables/covariates associated with each shape model (age, sex, group, etc.).
  
