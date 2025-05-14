@@ -15,7 +15,7 @@ R_sphere_template_vtk = '/path/to/your/right/spherical/parameterization/template
 
 # Define the paths to the template *shape VTKs* for MFSDA_createShapes.py (*_pp_surf_SPHARM.vtk)
 L_template_mask_vtk = '/path/to/your/left/shape/template_pp_surf_SPHARM.vtk'
-r_template_mask_vtk = '/path/to/your/right/shape/template_pp_surf_SPHARM.vtk'
+R_template_mask_vtk = '/path/to/your/right/shape/template_pp_surf_SPHARM.vtk'
 
 # Define the maximum number of parallel processes
 max_workers = 4  # Adjust this number based on the number of CPU cores you want to use
